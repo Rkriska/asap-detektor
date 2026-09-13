@@ -1,0 +1,262 @@
+{
+ "dibuat": "2026-09-12 09:40:14",
+ "unit": "sel 10 km grid LAEA lat_0=0 lon_0=114 (grid mesin Downwind & Exposure)",
+ "fitur": [
+  "api_prev_1d",
+  "api_prev_3d",
+  "api_prev_7d",
+  "api_prev_14d",
+  "api_prev_30d",
+  "frp_maks_prev_7d",
+  "hari_sejak_api",
+  "hari_aktif_prev_30d",
+  "hari_aktif_prev_365d",
+  "laju_kambuh_prev_365d",
+  "tetangga_prev_1d",
+  "tetangga_prev_7d",
+  "tetangga_prev_30d",
+  "hujan_hari_ini",
+  "hujan_prev_3d",
+  "hujan_prev_7d",
+  "hujan_prev_14d",
+  "hari_kering_prev_14d",
+  "suhu_maks",
+  "rh_min",
+  "angin_maks",
+  "doy_sin",
+  "doy_cos",
+  "oni",
+  "lat",
+  "lon"
+ ],
+ "param": {
+  "n_estimators": 600,
+  "learning_rate": 0.05,
+  "num_leaves": 63,
+  "min_child_samples": 100,
+  "subsample": 0.8,
+  "subsample_freq": 1,
+  "colsample_bytree": 0.8,
+  "random_state": 42,
+  "n_jobs": -1,
+  "verbose": -1
+ },
+ "split": {
+  "latih": [
+   "2022-09-01",
+   "2025-06-30"
+  ],
+  "validasi": [
+   "2025-06-30",
+   "2025-12-31"
+  ],
+  "uji_beku": [
+   "2025-12-31",
+   "2026-09-10"
+  ]
+ },
+ "hasil": {
+  "jendela": [
+   "2022-09-01",
+   "2026-09-10"
+  ],
+  "sel": 5709,
+  "fitur": [
+   "api_prev_1d",
+   "api_prev_3d",
+   "api_prev_7d",
+   "api_prev_14d",
+   "api_prev_30d",
+   "frp_maks_prev_7d",
+   "hari_sejak_api",
+   "hari_aktif_prev_30d",
+   "hari_aktif_prev_365d",
+   "laju_kambuh_prev_365d",
+   "tetangga_prev_1d",
+   "tetangga_prev_7d",
+   "tetangga_prev_30d",
+   "hujan_hari_ini",
+   "hujan_prev_3d",
+   "hujan_prev_7d",
+   "hujan_prev_14d",
+   "hari_kering_prev_14d",
+   "suhu_maks",
+   "rh_min",
+   "angin_maks",
+   "doy_sin",
+   "doy_cos",
+   "oni",
+   "lat",
+   "lon"
+  ],
+  "laju_kejadian_persen": 1.1655,
+  "split": {
+   "validasi_2025H2": {
+    "n": 1050456,
+    "laju_persen": 1.1128,
+    "ap": 0.1853,
+    "roc_auc": 0.9199,
+    "lift": 16.65
+   },
+   "uji_beku_2026": {
+    "n": 1444377,
+    "laju_persen": 2.4332,
+    "ap": 0.4357,
+    "roc_auc": 0.945,
+    "lift": 17.91
+   }
+  },
+  "kalibrasi": {
+   "w_negatif_disimpan": 0.174455,
+   "metode": "koreksi_prior",
+   "pemilihan": {
+    "belah_validasi": "2025-10-01",
+    "metrik": "ECE (galat kalibrasi terharap)",
+    "ece_paruh_akhir": {
+     "koreksi_prior": 0.000678,
+     "isotonik": 0.002044,
+     "prior_adaptif": 0.002002
+    }
+   },
+   "per_split": {
+    "validasi_2025H2": {
+     "laju_aktual": 0.011128,
+     "mentah": {
+      "brier": 0.012045,
+      "ece": 0.021216,
+      "rerata_skor": 0.032343,
+      "rasio_ke_aktual": 2.907
+     },
+     "koreksi_prior": {
+      "brier": 0.01003,
+      "ece": 0.004049,
+      "rerata_skor": 0.007089,
+      "rasio_ke_aktual": 0.637
+     },
+     "isotonik_validasi": {
+      "brier": 0.009839,
+      "ece": 0.0,
+      "rerata_skor": 0.011128,
+      "rasio_ke_aktual": 1.0
+     },
+     "prior_adaptif": {
+      "brier": 0.010006,
+      "ece": 0.00119,
+      "rerata_skor": 0.011548,
+      "rasio_ke_aktual": 1.038
+     }
+    },
+    "uji_beku_2026": {
+     "laju_aktual": 0.024332,
+     "mentah": {
+      "brier": 0.023141,
+      "ece": 0.033058,
+      "rerata_skor": 0.05739,
+      "rasio_ke_aktual": 2.359
+     },
+     "koreksi_prior": {
+      "brier": 0.017697,
+      "ece": 0.006607,
+      "rerata_skor": 0.017726,
+      "rasio_ke_aktual": 0.728
+     },
+     "isotonik_validasi": {
+      "brier": 0.017503,
+      "ece": 0.002124,
+      "rerata_skor": 0.025938,
+      "rasio_ke_aktual": 1.066
+     },
+     "prior_adaptif": {
+      "brier": 0.026184,
+      "ece": 0.027834,
+      "rerata_skor": 0.049082,
+      "rasio_ke_aktual": 2.017
+     }
+    }
+   }
+  },
+  "ambang_operasi": {
+   "ambang": 0.01950804,
+   "target_recall": 0.7,
+   "recall_uji": 0.8613,
+   "presisi_uji": 0.1583
+  },
+  "fitur_teratas": [
+   {
+    "fitur": "doy_sin",
+    "bobot": 3546
+   },
+   {
+    "fitur": "lon",
+    "bobot": 3253
+   },
+   {
+    "fitur": "doy_cos",
+    "bobot": 2920
+   },
+   {
+    "fitur": "lat",
+    "bobot": 2870
+   },
+   {
+    "fitur": "hujan_hari_ini",
+    "bobot": 2554
+   },
+   {
+    "fitur": "rh_min",
+    "bobot": 2103
+   },
+   {
+    "fitur": "suhu_maks",
+    "bobot": 2088
+   },
+   {
+    "fitur": "hujan_prev_3d",
+    "bobot": 2087
+   },
+   {
+    "fitur": "angin_maks",
+    "bobot": 2042
+   },
+   {
+    "fitur": "hujan_prev_14d",
+    "bobot": 1988
+   },
+   {
+    "fitur": "hujan_prev_7d",
+    "bobot": 1898
+   },
+   {
+    "fitur": "hari_sejak_api",
+    "bobot": 1584
+   }
+  ]
+ },
+ "versi_fitur": "hotspot-v2",
+ "pakai_landcover": false,
+ "pakai_mcd64a1": false,
+ "kalibrasi": {
+  "metode": "koreksi_prior",
+  "dilatih_di": [
+   "validasi",
+   "2025-06-30",
+   "2025-12-31"
+  ],
+  "w_negatif_disimpan": 0.174455,
+  "rumus_koreksi_prior": "odds_benar = odds_model * w",
+  "berkas_kalibrator": "kalibrator.json",
+  "kolom_terkalibrasi": "hotspot_risk_score_next_day",
+  "kolom_mentah": "hotspot_risk_score_mentah",
+  "catatan": "Transformasi monoton naik: AP, ROC, fire_risk_persentil, dan hotspot_prediction_next_day TIDAK berubah (diverifikasi: AP 0,4251 dan ROC 0,9441 identik sebelum/sesudah). Yang berubah hanya besaran peluangnya, supaya pemakaian sebagai BOBOT LINEAR di hitung_paparan.py sah sebagai paparan-yang-diharapkan, dan supaya angka yang tampil di produk memang peluang."
+ },
+ "keterbatasan": [
+  "Tutupan lahan sudah diagregasi (data/landcover_10km.csv) tapi SENGAJA tidak dipakai: ablasi menunjukkan AP turun (validasi 0,1896 -> 0,1774, uji 0,4317 -> 0,4255). Lihat hasil/ablasi_hotspot_output.json.",
+  "Area terbakar MCD64A1 sudah diunduh penuh (66 bulan, 2021-01 s/d 2026-06), diagregasi ke sel 10 km (data/mcd64a1_10km.parquet) dan DIUKUR lewat ablasi -- lalu SENGAJA tidak dipakai karena menurunkan AP di kedua jendela: validasi 0,1896 -> 0,1791 (-5,5%), uji 0,4317 -> 0,4222 (-2,2%). Sebabnya kerapatan: cuma 0,505% pasangan (sel,bulan) punya parut api, median 5 piksel dari ~460 per sel, dan 95,1% sel berparut sudah punya deteksi FIRMS -- yang harian dan tanpa jeda terbit 2 bulan. Implementasi fiturnya ada di skrip/ablasi_hotspot.py.",
+  "Cuaca ERA5-Land 0,1 derajat menutup 99% hari; sisanya (hari terbaru, ERA5 tertinggal beberapa hari) memakai Open-Meteo 0,75 derajat sebagai cadangan. Resolusinya berbeda -- tercatat, tidak dijadikan fitur.",
+  "Jendela keluaran mengikuti deteksi FIRMS terbaru; segarkan dengan skrip/perbarui_firms.py lalu latih ulang.",
+  "KALIBRASI BENAR RATA-RATA TAPI BERGOYANG PER BULAN. Di uji beku rasio kalibrasi keseluruhan 0,74x, tapi per bulan berayun 0,42x (Jan) sampai 1,19x (Mei), dan 0,62x di Agustus -- bulan dengan kejadian TERBANYAK justru diremehkan ~40%. Jadi peluang mutlak boleh dipakai untuk pembobotan dan pemeringkatan, tapi JANGAN disebut ke pengguna sebagai angka persen yang presisi. Uraiannya di hasil/kekar_hotspot_output.json.",
+  "Memperbaiki goyangan itu lewat prior adaptif SUDAH DICOBA dan GAGAL: menggeser prior tiap hari memakai laju dasar bergulir 30 hari membuat kalibrasi jauh lebih buruk (ECE uji 0,0062 -> 0,0288, rasio 0,74x -> 2,07x). Sebabnya doy_sin/doy_cos adalah dua fitur TERKUAT model, jadi skor mentahnya sudah membawa musim; menggeser prior lagi berarti menghitung musim dua kali. Kandidatnya tetap ada di skrip ini supaya tidak dicoba ulang tanpa tahu hasilnya.",
+  "Angka utama tidak sepresisi empat desimal. Bootstrap blok-per-hari (korelasi dalam-hari ikut terbawa): AP 0,4223 dengan CI95 [0,3705, 0,4683]. Sebut 'AP sekitar 0,42', bukan 'AP 0,4251'.",
+  "Mutu tidak rata antar provinsi: AP 0,19 (Kalimantan Utara) sampai 0,54 (Kalimantan Selatan). Daya pisahnya rata (ROC 0,93-0,95 di semuanya), yang berbeda kerapatan kejadian dan titik operasinya -- recall di ambang tetap berkisar 0,70 (Kaltara) sampai 0,90 (Kalbar)."
+ ]
+}

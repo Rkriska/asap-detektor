@@ -1,0 +1,199 @@
+{
+ "dibuat": "2026-09-12 10:07:00",
+ "versi_fitur": "asap-v1",
+ "fitur": [
+  "pm_hari_ini",
+  "pm_kemarin",
+  "pm_tren",
+  "pm_3h_rerata",
+  "pm_7h_maks",
+  "pm_7h_rerata",
+  "hotspot_5km",
+  "hotspot_10km",
+  "hotspot_25km",
+  "nearest_hotspot_km",
+  "avg_frp",
+  "max_frp",
+  "active_fire_days",
+  "rainfall",
+  "temperature",
+  "humidity",
+  "wind_speed",
+  "wind_direction",
+  "pm_hulu_60km",
+  "pm_hulu_120km",
+  "blh_rerata",
+  "blh_min",
+  "doy_sin",
+  "doy_cos",
+  "oni"
+ ],
+ "horizon": [
+  1,
+  2,
+  3
+ ],
+ "bobot_blend": 0.5,
+ "bobot_blend_catatan": "dikunci 0,5; menala di jendela kalibrasi terbukti lebih buruk di holdout",
+ "target_recall": 0.7,
+ "titik_operasi_ug_m3": {
+  "h1_tidak_sehat": 55.4,
+  "h1_bahaya": 150.4,
+  "h2_tidak_sehat": 55.4,
+  "h2_bahaya": 150.4,
+  "h3_tidak_sehat": 55.4,
+  "h3_bahaya": 150.4
+ },
+ "ambang_ispu": {
+  "tidak_sehat": 55.4,
+  "bahaya": 150.4
+ },
+ "sumber_ambang": "PermenLHK No. P.14/MENLHK/SETJEN/KUM.1/7/2020, Lampiran I.A (tabel konversi konsentrasi) dan Lampiran II.A (kategori). Dicocokkan langsung ke dokumen PDF pada 2026-09-06.",
+ "model": {
+  "h1": {
+   "berkas": "model_h1.txt",
+   "baris_latih": 290268,
+   "latih_sampai": "2026-09-11"
+  },
+  "h2": {
+   "berkas": "model_h2.txt",
+   "baris_latih": 290268,
+   "latih_sampai": "2026-09-11"
+  },
+  "h3": {
+   "berkas": "model_h3.txt",
+   "baris_latih": 290268,
+   "latih_sampai": "2026-09-11"
+  }
+ },
+ "validasi": {
+  "versi_fitur": "asap-v1",
+  "bobot_blend": 0.5,
+  "kalibrasi": [
+   "2026-07-16",
+   "2026-08-05"
+  ],
+  "holdout": [
+   "2026-08-06",
+   "2026-08-26"
+  ],
+  "horizon": {
+   "h1": {
+    "mae_blend": 14.08,
+    "mae_persistensi": 12.923,
+    "bias_blend": 5.99,
+    "ambang": {
+     "tidak_sehat": {
+      "kejadian_holdout": 1147,
+      "laju_holdout_persen": 27.585,
+      "pr_auc_blend": 0.9044,
+      "pr_auc_persistensi": 0.8986,
+      "roc_auc_blend": 0.9588,
+      "roc_auc_persistensi": 0.9552,
+      "naik_persen": 0.65,
+      "ambang_utama": 55.4,
+      "recall_holdout": 0.9233,
+      "presisi_holdout": 0.7298,
+      "ambang_alt_recall_tinggi": 50.195,
+      "recall_alt": 0.9486,
+      "presisi_alt": 0.6642
+     },
+     "bahaya": {
+      "kejadian_holdout": 166,
+      "laju_holdout_persen": 3.992,
+      "pr_auc_blend": 0.7445,
+      "pr_auc_persistensi": 0.6845,
+      "roc_auc_blend": 0.9793,
+      "roc_auc_persistensi": 0.9752,
+      "naik_persen": 8.77,
+      "ambang_utama": 150.4,
+      "recall_holdout": 0.7108,
+      "presisi_holdout": 0.6821,
+      "ambang_alt_recall_tinggi": null,
+      "recall_alt": null,
+      "presisi_alt": null
+     }
+    }
+   },
+   "h2": {
+    "mae_blend": 19.412,
+    "mae_persistensi": 19.279,
+    "bias_blend": 6.282,
+    "ambang": {
+     "tidak_sehat": {
+      "kejadian_holdout": 1223,
+      "laju_holdout_persen": 29.413,
+      "pr_auc_blend": 0.8315,
+      "pr_auc_persistensi": 0.8156,
+      "roc_auc_blend": 0.9249,
+      "roc_auc_persistensi": 0.9141,
+      "naik_persen": 1.95,
+      "ambang_utama": 55.4,
+      "recall_holdout": 0.8716,
+      "presisi_holdout": 0.686,
+      "ambang_alt_recall_tinggi": 41.3388,
+      "recall_alt": 0.9632,
+      "presisi_alt": 0.5352
+     },
+     "bahaya": {
+      "kejadian_holdout": 172,
+      "laju_holdout_persen": 4.137,
+      "pr_auc_blend": 0.4513,
+      "pr_auc_persistensi": 0.3673,
+      "roc_auc_blend": 0.9441,
+      "roc_auc_persistensi": 0.9304,
+      "naik_persen": 22.87,
+      "ambang_utama": 150.4,
+      "recall_holdout": 0.4244,
+      "presisi_holdout": 0.5034,
+      "ambang_alt_recall_tinggi": null,
+      "recall_alt": null,
+      "presisi_alt": null
+     }
+    }
+   },
+   "h3": {
+    "mae_blend": 23.164,
+    "mae_persistensi": 23.766,
+    "bias_blend": 4.428,
+    "ambang": {
+     "tidak_sehat": {
+      "kejadian_holdout": 1323,
+      "laju_holdout_persen": 31.818,
+      "pr_auc_blend": 0.7927,
+      "pr_auc_persistensi": 0.7611,
+      "roc_auc_blend": 0.8947,
+      "roc_auc_persistensi": 0.8753,
+      "naik_persen": 4.16,
+      "ambang_utama": 55.4,
+      "recall_holdout": 0.8511,
+      "presisi_holdout": 0.6659,
+      "ambang_alt_recall_tinggi": 33.0505,
+      "recall_alt": 0.9667,
+      "presisi_alt": 0.4706
+     },
+     "bahaya": {
+      "kejadian_holdout": 203,
+      "laju_holdout_persen": 4.882,
+      "pr_auc_blend": 0.3541,
+      "pr_auc_persistensi": 0.2712,
+      "roc_auc_blend": 0.9107,
+      "roc_auc_persistensi": 0.8943,
+      "naik_persen": 30.56,
+      "ambang_utama": 150.4,
+      "recall_holdout": 0.2808,
+      "presisi_holdout": 0.4043,
+      "ambang_alt_recall_tinggi": null,
+      "recall_alt": null,
+      "presisi_alt": null
+     }
+    }
+   }
+  }
+ },
+ "keterbatasan": [
+  "Divalidasi pada SATU musim kebakaran (Agu 2026) -- itu satu-satunya musim berkejadian di arsip CAMS yang tersedia (mulai 2022-09-01).",
+  "PM2.5 CAMS ~56 km dan mengasimilasi emisi GFAS dari FRP satelit yang sama dengan titik panas kita, jadi ia bukan pengamatan bebas.",
+  "Unit model = titik grid PM2.5, bukan desa. Nilai desa harus disebut sebagai nilai WILAYAH, bukan pengukuran di desa itu."
+ ]
+}

@@ -1,0 +1,627 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* ============================================================
+   THEME
+   ============================================================ */
+
+:root {
+  --ink: #18332a;
+  --ink-2: #29463b;
+  --muted: #687972;
+  --muted-2: #819089;
+
+  --accent: #13795b;
+  --accent-dark: #0e6048;
+  --accent-soft: #e8f5ef;
+
+  --surface: #ffffff;
+  --surface-2: #f6f9f7;
+  --border: #e1eae5;
+
+  --shadow-soft: 0 7px 26px rgba(24, 51, 42, 0.055);
+  --shadow-input: 0 5px 18px rgba(24, 51, 42, 0.04);
+}
+
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+
+html,
+body,
+[class*="css"] {
+  font-family: "DM Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif !important;
+}
+
+.stApp {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(19, 121, 91, 0.055),
+      transparent 28%
+    ),
+    #fbfdfc;
+}
+
+.block-container {
+  max-width: 1180px;
+
+  /* Fix hero agar tidak kepotong */
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+[data-testid="stSidebar"] {
+  background: #f6f9f7;
+  border-right: 1px solid var(--border);
+}
+
+[data-testid="stSidebar"] > div:first-child {
+  padding-top: 1.5rem;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px 14px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--accent-soft);
+
+  font-size: 22px;
+}
+
+.brand-title {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-weight: 700;
+  color: var(--ink);
+
+  letter-spacing: 0.02em;
+}
+
+.brand-subtitle {
+  color: var(--muted);
+  font-size: 0.78rem;
+
+  margin-top: 2px;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+
+  margin: 4px 0 18px;
+}
+
+.sidebar-spacer {
+  height: 45vh;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  max-width: 840px;
+}
+
+.hero.compact {
+  max-width: 760px;
+}
+
+.eyebrow,
+.section-label {
+  color: var(--accent);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  color: var(--ink);
+
+  /* Diperkecil sedikit supaya aman di layar laptop */
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+
+  line-height: 1.04;
+
+  margin: 0.55rem 0 0.9rem;
+}
+
+.hero h1 span {
+  color: #7a8a84;
+}
+
+.hero p {
+  color: var(--muted);
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+
+  max-width: 690px;
+
+  margin: 0;
+}
+
+.hero-gap {
+  height: 38px;
+}
+
+.content-gap {
+  height: 28px;
+}
+
+.content-gap-small {
+  height: 12px;
+}
+
+.section-label {
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   SEARCH INPUT
+   ============================================================ */
+
+/*
+   IMPORTANT:
+   Streamlit/BaseWeb kadang mewariskan warna teks dari theme.
+   Karena itu color + -webkit-text-fill-color dipaksa.
+*/
+
+div[data-testid="stTextInput"] input,
+div[data-testid="stTextInput"] input:focus,
+div[data-baseweb="input"] input,
+div[data-baseweb="input"] input:focus {
+  color: #18332a !important;
+  -webkit-text-fill-color: #18332a !important;
+
+  background: #ffffff !important;
+
+  border: 1px solid #dde7e2 !important;
+  border-radius: 14px !important;
+
+  min-height: 54px !important;
+
+  padding: 0 18px !important;
+
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+
+  opacity: 1 !important;
+
+  caret-color: #13795b !important;
+
+  box-shadow: var(--shadow-input) !important;
+}
+
+/* Placeholder */
+
+div[data-testid="stTextInput"] input::placeholder,
+div[data-baseweb="input"] input::placeholder {
+  color: #7a8a84 !important;
+  -webkit-text-fill-color: #7a8a84 !important;
+
+  opacity: 1 !important;
+}
+
+/* Focus */
+
+div[data-testid="stTextInput"] input:focus,
+div[data-baseweb="input"] input:focus {
+  border-color: #72b89f !important;
+
+  outline: none !important;
+
+  box-shadow:
+    0 0 0 4px rgba(19, 121, 91, 0.08),
+    var(--shadow-input) !important;
+}
+
+/* ============================================================
+   SEARCH RESULT / SELECTBOX
+   ============================================================ */
+
+/* Container */
+
+div[data-baseweb="select"] > div {
+  background: #ffffff !important;
+
+  border-radius: 12px !important;
+
+  border: 1px solid #dde7e2 !important;
+
+  min-height: 48px;
+}
+
+/* Selected text */
+
+div[data-baseweb="select"] input,
+div[data-baseweb="select"] [role="combobox"] {
+  color: #18332a !important;
+  -webkit-text-fill-color: #18332a !important;
+}
+
+/* Visible selected value */
+
+div[data-baseweb="select"] span {
+  color: #18332a !important;
+}
+
+/* Dropdown menu */
+
+ul[role="listbox"],
+div[role="listbox"] {
+  background: #ffffff !important;
+  color: #18332a !important;
+}
+
+/* Dropdown items */
+
+li[role="option"],
+div[role="option"] {
+  color: #18332a !important;
+  background: #ffffff !important;
+}
+
+li[role="option"]:hover,
+div[role="option"]:hover {
+  background: #f1f7f4 !important;
+}
+
+/* ============================================================
+   EMPTY SEARCH STATE
+   ============================================================ */
+
+.empty-search {
+  margin-top: 16px;
+
+  border: 1px dashed #cfdcd6;
+
+  background: rgba(246, 249, 247, 0.7);
+
+  border-radius: 16px;
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+.empty-icon {
+  color: var(--accent);
+
+  font-size: 26px;
+
+  margin-bottom: 4px;
+}
+
+.empty-title {
+  color: var(--ink);
+
+  font-weight: 700;
+}
+
+.empty-text {
+  color: var(--muted);
+
+  margin-top: 4px;
+
+  font-size: 0.92rem;
+}
+
+/* ============================================================
+   FORECAST CARDS
+   ============================================================ */
+
+.forecast-card {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-top: 4px solid var(--aq-color);
+
+  border-radius: 18px;
+
+  padding: 20px 18px;
+
+  box-shadow: var(--shadow-soft);
+
+  min-height: 205px;
+}
+
+.forecast-card.unavailable {
+  opacity: 0.55;
+
+  border-top-color: #aab8b2;
+}
+
+.forecast-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.forecast-horizon {
+  color: #819089;
+
+  font-size: 0.74rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.forecast-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--aq-color);
+}
+
+.forecast-value {
+  color: var(--ink);
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-weight: 700;
+
+  font-size: 2.7rem;
+
+  line-height: 1;
+
+  margin-top: 30px;
+}
+
+.forecast-unit {
+  color: var(--muted);
+
+  font-size: 0.82rem;
+
+  margin-top: 6px;
+}
+
+.forecast-date {
+  color: #82908a;
+
+  font-size: 0.84rem;
+
+  margin-top: 17px;
+}
+
+.forecast-badge {
+  display: inline-flex;
+
+  margin-top: 13px;
+
+  border-radius: 999px;
+
+  padding: 5px 10px;
+
+  background: #f3f7f5;
+
+  color: #38564c;
+
+  font-size: 0.76rem;
+
+  font-weight: 600;
+}
+
+/* ============================================================
+   LOCATION INFO
+   ============================================================ */
+
+.info-card {
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  padding: 20px;
+
+  min-height: 152px;
+
+  box-shadow: var(--shadow-soft);
+}
+
+.info-title {
+  color: var(--ink);
+
+  font-weight: 700;
+
+  font-size: 1rem;
+}
+
+.info-subtitle {
+  color: var(--muted);
+
+  font-size: 0.84rem;
+
+  margin-top: 4px;
+}
+
+.info-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+
+  margin-top: 26px;
+}
+
+.info-grid span {
+  color: #8a9791;
+
+  font-size: 0.72rem;
+
+  display: block;
+
+  margin-bottom: 3px;
+}
+
+.info-grid b {
+  color: var(--ink);
+
+  font-size: 0.9rem;
+}
+
+.distance-value {
+  color: var(--accent);
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 2.1rem;
+
+  font-weight: 700;
+
+  margin-top: 12px;
+}
+
+.info-grid.compact {
+  margin-top: 10px;
+}
+
+/* ============================================================
+   DISCLAIMER
+   ============================================================ */
+
+.disclaimer {
+  display: flex;
+
+  gap: 12px;
+
+  align-items: flex-start;
+
+  background: #fffaea;
+
+  border: 1px solid #f1e3b5;
+
+  border-radius: 14px;
+
+  padding: 15px 16px;
+}
+
+.disclaimer-icon {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f3c84b;
+
+  color: #ffffff;
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+}
+
+.disclaimer b {
+  color: #6a5b24;
+
+  font-size: 0.86rem;
+}
+
+.disclaimer p {
+  color: #776b3a;
+
+  font-size: 0.82rem;
+
+  line-height: 1.55;
+
+  margin: 3px 0 0;
+}
+
+/* ============================================================
+   METRIC
+   ============================================================ */
+
+[data-testid="stMetric"] {
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  padding: 16px;
+
+  border-radius: 14px;
+}
+
+/* ============================================================
+   STREAMLIT BUTTON / RADIO TEXT
+   ============================================================ */
+
+button {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span {
+  color: var(--ink);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 760px) {
+  .block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 0.98rem;
+  }
+
+  .sidebar-spacer {
+    height: 10vh;
+  }
+
+  .forecast-value {
+    font-size: 2.25rem;
+  }
+
+  .forecast-card {
+    min-height: 180px;
+  }
+}
